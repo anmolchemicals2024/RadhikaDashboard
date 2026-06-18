@@ -3,12 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Company Extension Directory</title>
+<title>Extension Directory</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root{
+    --primary:#153b8f;
+    --secondary:#1e40af;
+    --bg:#f4f7fb;
+    --white:#ffffff;
+}
+
 *{
     margin:0;
     padding:0;
@@ -17,7 +23,7 @@
 }
 
 body{
-    background:#f4f7fc;
+    background:linear-gradient(135deg,#eef4ff,#f8fbff);
     padding:20px;
 }
 
@@ -27,42 +33,43 @@ body{
 }
 
 .header{
-    background:linear-gradient(135deg,#0f4c81,#2563eb);
-    color:white;
+    background:linear-gradient(135deg,#024175,#375dda);
+    color:#fff;
     padding:30px;
-    border-radius:15px;
+    border-radius:20px;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
-    margin-bottom:25px;
+    margin-bottom:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
 .header h1{
     font-size:32px;
-    margin-bottom:8px;
 }
 
 .header p{
     opacity:.9;
+    margin-top:8px;
 }
 
-.search-box{
+.search{
     margin-bottom:20px;
 }
 
-.search-box input{
+.search input{
     width:100%;
     padding:15px 20px;
     border:none;
-    border-radius:12px;
+    border-radius:15px;
     font-size:16px;
-    box-shadow:0 3px 10px rgba(0,0,0,.1);
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
-.table-container{
-    background:white;
-    border-radius:15px;
+.card{
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
     overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
 
 table{
@@ -71,7 +78,7 @@ table{
 }
 
 thead{
-    background:#0f4c81;
+    background:#005295;
     color:white;
 }
 
@@ -80,7 +87,6 @@ th{
     text-align:left;
     position:sticky;
     top:0;
-    z-index:100;
 }
 
 td{
@@ -93,36 +99,45 @@ tbody tr:nth-child(even){
 }
 
 tbody tr:hover{
-    background:#e8f1ff;
-    transition:.3s;
+    background:#eaf2ff;
+}
+
+.ext{
+    font-weight:600;
+    color:#005295;
 }
 
 .badge{
     display:inline-block;
-    padding:5px 10px;
-    border-radius:20px;
+    padding:4px 10px;
+    border-radius:50px;
     font-size:12px;
     font-weight:600;
     background:#dbeafe;
     color:#1d4ed8;
 }
 
-.ext{
-    font-weight:600;
-    color:#0f4c81;
-}
-
-.no-user{
-    color:#999;
-    font-style:italic;
-}
-
 .footer{
     text-align:center;
-    margin-top:20px;
+    font-size:13px;
+    margin-top:15px;
     color:#666;
-    font-size:14px;
 }
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 20px;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.tel {
+  font-weight: 600;
+}
+
+
 
 @media(max-width:768px){
     table{
@@ -143,120 +158,184 @@ tbody tr:hover{
 
 <div class="container">
 
-    <div class="header">
-        <h1>Anmol Chemicals Pvt. Ltd.</h1>
-        <p>📞 Company Extension Directory</p>
-    </div>
+<div class="header">
+    <h1>Anmol Chemical Pvt. Ltd</h1>
+    <p>&#9742;   &nbsp; Company Extension Directory</p>
+</div>
 
-    <div class="search-box">
-        <input type="text"
-               id="searchInput"
-               placeholder="🔍 Search by Name, Extension or Department..."
-               onkeyup="searchTable()">
-    </div>
+<div class="search">
+    <input type="text"
+           id="searchInput"
+           placeholder="🔍 Search Name, Extension or Department">
+</div>
 
-    <div class="table-container">
-        <table id="directoryTable">
-            <thead>
-                <tr>
-                    <th>Sr. No.</th>
-                    <th>User Name</th>
-                    <th>Extension</th>
-                    <th>Department</th>
-                </tr>
-            </thead>
+<div class="stats">
+  <div>
+    Total Records: <span id="count"></span>
+  </div>
 
-            <tbody>
+  <div class="tel">
+    Tel: +91 22-65290100
+  </div>
+</div>
 
-                <tr><td>1</td><td>Reception</td><td class="ext">9</td><td><span class="badge">Reception</span></td></tr>
-                <tr><td>2</td><td>Reception</td><td class="ext">101</td><td><span class="badge">Reception</span></td></tr>
-                <tr><td>3</td><td>Ananda Naikwadi</td><td class="ext">102</td><td>Cabin No. 01</td></tr>
-                <tr><td>4</td><td>Suraj Nair</td><td class="ext">103</td><td>Cabin No. 02</td></tr>
-                <tr><td>5</td><td>Aarav Kamdar</td><td class="ext">104</td><td>Cabin No. 03</td></tr>
-                <tr><td>6</td><td>Pinnacle</td><td class="ext">105 & 153</td><td>Pinnacle</td></tr>
-                <tr><td>7</td><td>Soban Patel</td><td class="ext">106</td><td>Cabin No. 04</td></tr>
-                <tr><td>8</td><td>Big Boss</td><td class="ext">107</td><td>Cabin No. 05</td></tr>
-                <tr><td>9</td><td>Anmol Kamdar</td><td class="ext">108</td><td>Cabin No. 06</td></tr>
-                <tr><td>10</td><td>Huddle</td><td class="ext">109</td><td>Huddle</td></tr>
-                <tr><td>11</td><td>Brainstorm</td><td class="ext">110</td><td>Brainstorm</td></tr>
-                <tr><td>12</td><td>Pantry</td><td class="ext">111</td><td>Pantry</td></tr>
-                <tr><td>13</td><td>Dining Area</td><td class="ext">112</td><td>Dining Area</td></tr>
+<div class="card">
+<table id="directory">
+    <thead>
+        <tr>
+            <th>Sr No</th>
+            <th>Username</th>
+            <th>Extension</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+</table>
+</div>
 
-                <tr><td>14</td><td class="no-user">No User</td><td class="ext">113</td><td>Account</td></tr>
-                <tr><td>16</td><td>Aditya Walke</td><td class="ext">114</td><td>Account</td></tr>
-                <tr><td>18</td><td>Shivani Sawant</td><td class="ext">115</td><td>Account</td></tr>
-                <tr><td>20</td><td class="no-user">No User</td><td class="ext">116</td><td>Account</td></tr>
-                <tr><td>22</td><td>Jagruti Haladankar</td><td class="ext">117</td><td>Account</td></tr>
-                <tr><td>24</td><td class="no-user">No User</td><td class="ext">118</td><td>Account</td></tr>
-
-                <tr><td>26</td><td>Sayali Raut</td><td class="ext">119</td><td>Documentation</td></tr>
-                <tr><td>28</td><td>Pooja Kathe</td><td class="ext">120</td><td>Documentation</td></tr>
-                <tr><td>30</td><td>Jonita Oliveira</td><td class="ext">121</td><td>Documentation</td></tr>
-                <tr><td>32</td><td>Pranay Pawar</td><td class="ext">122</td><td>Documentation</td></tr>
-                <tr><td>33</td><td>Mansi Murkar</td><td class="ext">123</td><td>Documentation</td></tr>
-                <tr><td>35</td><td>Surbhi Arekar</td><td class="ext">124</td><td>Documentation</td></tr>
-                <tr><td>37</td><td>Neha Patil</td><td class="ext">125</td><td>Documentation</td></tr>
-                <tr><td>38</td><td>Shraddha Kambare</td><td class="ext">126</td><td>Documentation</td></tr>
-
-                <tr><td>48</td><td>Manasi Rane</td><td class="ext">131</td><td>Marketing</td></tr>
-                <tr><td>50</td><td>Carolin Neraparambil</td><td class="ext">132</td><td>Marketing</td></tr>
-                <tr><td>52</td><td>Supriya Belawade</td><td class="ext">133</td><td>Marketing</td></tr>
-                <tr><td>54</td><td class="no-user">No User</td><td class="ext">134</td><td>Marketing</td></tr>
-                <tr><td>56</td><td>Gargi More</td><td class="ext">135</td><td>Marketing</td></tr>
-                <tr><td>58</td><td>Vrinda Sharma</td><td class="ext">136</td><td>Marketing</td></tr>
-                <tr><td>60</td><td>Mohsin Patel</td><td class="ext">157</td><td>Marketing</td></tr>
-
-                <tr><td>61</td><td>Mansvi Patil</td><td class="ext">164</td><td>Export</td></tr>
-
-                <tr><td>65</td><td class="no-user">No User</td><td class="ext">138</td><td>Purchase/Sourcing</td></tr>
-                <tr><td>67</td><td>Manish Chawda</td><td class="ext">160</td><td>Purchase/Sourcing</td></tr>
-                <tr><td>69</td><td>Prapti Jadhav</td><td class="ext">161</td><td>Purchase/Sourcing</td></tr>
-                <tr><td>71</td><td class="no-user">No User</td><td class="ext">162</td><td>Purchase/Sourcing</td></tr>
-                <tr><td>72</td><td class="no-user">No User</td><td class="ext">137</td><td>Purchase/Sourcing</td></tr>
-                <tr><td>74</td><td class="no-user">No User</td><td class="ext">163</td><td>Purchase/Sourcing</td></tr>
-
-                <tr><td>76</td><td>Madhuri Kadam</td><td class="ext">139</td><td>HR</td></tr>
-                <tr><td>77</td><td>Pranali Kadam</td><td class="ext">140</td><td>HR</td></tr>
-
-                <tr><td>80</td><td>Sachin Mavle</td><td class="ext">143</td><td>Office Boy</td></tr>
-
-                <tr><td>86</td><td>Kunal Shinde</td><td class="ext">144</td><td>RA</td></tr>
-                <tr><td>88</td><td>Nayana Salunkhe</td><td class="ext">145</td><td>RA</td></tr>
-                <tr><td>90</td><td class="no-user">No User</td><td class="ext">146</td><td>RA</td></tr>
-                <tr><td>91</td><td>Namrata Darade</td><td class="ext">147</td><td>RA</td></tr>
-                <tr><td>93</td><td class="no-user">No User</td><td class="ext">148</td><td>RA</td></tr>
-
-                <tr><td>96</td><td>Radhika Ghode</td><td class="ext">150</td><td>IT</td></tr>
-                <tr><td>98</td><td>Mayuri Munagekar</td><td class="ext">151</td><td>IT</td></tr>
-                <tr><td>98</td><td>Kiran Kapurkar</td><td class="ext">152</td><td>IT</td></tr>
-                <tr><td>100</td><td>Komal Nalla</td><td class="ext">152</td><td>IT</td></tr>
-                <tr><td>101</td><td class="no-user">No User</td><td class="ext">179</td><td>IT</td></tr>
-                <tr><td>103</td><td>Sejal Jadhav</td><td class="ext">178</td><td>IT</td></tr>
-                <tr><td>105</td><td>Kunal Yadav</td><td class="ext">155</td><td>IT</td></tr>
-
-            </tbody>
-        </table>
-    </div>
-
-    <div class="footer">
-        Company Internal Extension Directory © 2026
-    </div>
+<div class="footer">
+    © 2026 Anmol Chemicals Extension Directory
+</div>
 
 </div>
 
 <script>
-function searchTable() {
-    let input = document.getElementById("searchInput");
-    let filter = input.value.toUpperCase();
-    let table = document.getElementById("directoryTable");
-    let tr = table.getElementsByTagName("tr");
 
-    for (let i = 1; i < tr.length; i++) {
-        let txt = tr[i].textContent || tr[i].innerText;
-        tr[i].style.display =
-            txt.toUpperCase().indexOf(filter) > -1 ? "" : "none";
-    }
+const data = [
+[1,"Front Desk","9","Reception"],
+[2,"Front Desk","101","Reception"],
+[3,"Ananda Naikwadi","102","Cabin No. 01"],
+[4,"Suraj Nair","103","Cabin No. 02"],
+[5,"Aarav Kamdar","104","Cabin No. 03"],
+[6,"Pinnacle","105 & 153","Pinnacle"],
+[7,"Soban Patel","106","Cabin No. 04"],
+[8,"Big Boss","107","Cabin No. 05"],
+[9,"Anmol Kamdar","108","Cabin No. 06"],
+[10,"Huddle","109","Huddle"],
+[11,"Brainstorm","110","Brainstorm"],
+[12,"Pantry","111","Pantry"],
+[13,"Dining Area","112","Dining Area"],
+[14,"No User","113","Account"],
+[15,"No User","113","Account"],
+[16,"Aditya Walke","114","Account"],
+[17,"Sangeeta Vishwakarma","114","Account"],
+[18,"Shivani Sawant","115","Account"],
+[19,"Suraj Nair","115","Account"],
+[20,"No User","116","Account"],
+[21,"Khushboo Singh","116","Account"],
+[22,"Jagruti Haladankar","117","Account"],
+[23,"Neha Ambadskar","117","Account"],
+[24,"No User","118","Account"],
+[25,"No User","118","Account"],
+[26,"Sayali Raut","119","Documentation"],
+[27,"Simran Kadam","119","Documentation"],
+[28,"Pooja Kathe","120","Documentation"],
+[29,"Prerna Rane","120","Documentation"],
+[30,"Jonita Oliveira","121","Documentation"],
+[31,"No User","121","Documentation"],
+[32,"Pranay Pawar","122","Documentation"],
+[33,"Mansi Murkar","123","Documentation"],
+[34,"Mrunal Patade","123","Documentation"],
+[35,"Surbhi Arekar","124","Documentation"],
+[36,"Disha Yadav","124","Documentation"],
+[37,"Neha Patil","125","Documentation"],
+[38,"Shraddha Kambare","126","Documentation"],
+[39,"Prerna Dubey","126","Documentation"],
+[40,"Manjudevi Singadiya","127","Documentation"],
+[41,"Saima Khan","127","Documentation"],
+[42,"Darshana Chaudhari","128","Documentation"],
+[43,"Kavita Tumbare","128","Documentation"],
+[44,"Sejal Dhatavkar","129","Documentation"],
+[45,"Vanshika Sharma","129","Documentation"],
+[46,"Nandini Gupta","130","Documentation"],
+[47,"Priyanka Jain","130","Marketing"],
+[48,"Manasi Rane","131","Marketing"],
+[49,"Laxmi Sahu","131","Marketing"],
+[50,"Carolin Neraparambil","132","Marketing"],
+[51,"Sneha Sawant","132","Marketing"],
+[52,"Supriya Belawade","133","Marketing"],
+[53,"Parinaz Elavia","133","Marketing"],
+[54,"No User","134","Marketing"],
+[55,"No User","134","Marketing"],
+[56,"Gargi More","135","Marketing"],
+[57,"Shravani Pisal","135","Marketing"],
+[58,"Vrinda Sharma","136","Marketing"],
+[59,"Khushnuma Elavia","136","Marketing"],
+[60,"Mohsin Patel","157","Marketing"],
+[61,"Mansvi Patil","164","Export"],
+[62,"Yash Ambre","164","Export"],
+[63,"Devraj Deshmukh","164","Export"],
+[64,"Shubham Yadav","164","Export"],
+[65,"No User","138","Purchase/Sourcing"],
+[66,"Harsh Surve","138","Purchase/Sourcing"],
+[67,"Manish Chawda","160","Purchase/Sourcing"],
+[68,"Shubham Gurav","160","Purchase/Sourcing"],
+[69,"Prapti Jadhav","161","Purchase/Sourcing"],
+[70,"Vaishali Magade","161","Purchase/Sourcing"],
+[71,"No User","162","Purchase/Sourcing"],
+[72,"No User","137","Purchase/Sourcing"],
+[73,"No User","137","Purchase/Sourcing"],
+[74,"No User","163","Purchase/Sourcing"],
+[75,"No User","163","Purchase/Sourcing"],
+[76,"Madhuri Kadam","139","HR"],
+[77,"Pranali Kadam","140","HR"],
+[78,"No User","141","HR"],
+[79,"No User","142","HR"],
+[80,"Sachin Mavle","143","OFFICE BOY"],
+[81,"No User","143","OFFICE BOY"],
+[82,"Amol Kumbhar","143","OFFICE BOY"],
+[83,"Sunil Gholap","143","OFFICE BOY"],
+[84,"No User","143","OFFICE BOY"],
+[85,"Sandeep Pabalkar","143","OFFICE BOY"],
+[86,"Kunal Shinde","144","RA"],
+[87,"Gaurav Satre","144","RA"],
+[88,"Nayana Salunkhe","145","RA"],
+[89,"Janhavi Tarde","145","RA"],
+[90,"No User","146","RA"],
+[91,"Namrata Darade","147","RA"],
+[92,"No User","147","RA"],
+[93,"No User","148","RA"],
+[94,"No User","148","RA"],
+[95,"No User","149","RA"],
+[96,"Radhika Ghode","150","IT"],
+[97,"Manju Manthiram","150","IT"],
+[98,"Mayuri Munagekar","151","IT"],
+[99,"Kiran Kapurkar","151","IT"],
+[100,"Komal Nalla","152","IT"],
+[101,"No User","179","IT"],
+[102,"Rashmi Rane","179","IT"],
+[103,"Sejal Jadhav","178","IT"],
+[104,"Siddhesh Pardule","178","IT"],
+[105,"Kunal Yadav","155","IT"]
+];
+
+const tableBody = document.getElementById("tableBody");
+
+function renderTable(rows){
+    tableBody.innerHTML = rows.map(row => `
+        <tr>
+            <td>${row[0]}</td>
+            <td>${row[1]}</td>
+            <td class="ext">${row[2]}</td>
+            <td><span>${row[3]}</span></td>
+        </tr>
+    `).join('');
+
+    document.getElementById("count").textContent = rows.length;
 }
+
+renderTable(data);
+
+document.getElementById("searchInput").addEventListener("keyup", function(){
+    const value = this.value.toLowerCase();
+
+    const filtered = data.filter(row =>
+        row.join(" ").toLowerCase().includes(value)
+    );
+
+    renderTable(filtered);
+});
+
 </script>
 
 </body>
